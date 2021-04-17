@@ -23,13 +23,6 @@ client.on('message', async message => {
 	}
 });
 
-/*
-//Member Join
-client.on("guildMemberAdd", (member) => {
-	console.log(`New User "${member.user.username}" has joined "${member.guild.name}"` );
-	member.guild.channels.cache.find(c => c.name === "general").send(`"${member.user.username}" has joined this server`);
-});
-
 //Member Leave
 client.on("guildMemberRemove", member => {
 	member.guild.systemChannel.send(`${member} left the server 😢`).then(sentEmbed => {
@@ -112,7 +105,7 @@ client.on('message', message => {
 	}
 });
 
-
+/*
 // On reaction
 client.on('messageReactionAdd', async (reaction, user) => {
 	if (reaction.message.partial); await reaction.message.fetch();
@@ -159,4 +152,15 @@ client.on("messageReactionRemove", async (reaction, user) => {
 	}
 });
 */
+
+// debug
+client.on("debug", function(info){
+    console.log(`debug -> ${info}`);
+});
+
+// warning
+client.on("warn", function(info){
+    console.log(`warn: ${info}`);
+});
+
 client.login(token);

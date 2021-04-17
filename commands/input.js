@@ -14,14 +14,14 @@ module.exports = {
             if (err) {
                 console.log(`Error reading file from disk: ${err}`);
             } else {     
-                const users = JSON.parse(data);
+                users = JSON.parse(data);
             }
         });
         if (user_id in users) {
             console.log(`[=] ${user_id} already in dict`);
         } else {
             console.log(`[+] New user ${user_id}, adding to list`);
-            users.set(user_id, [])
+            users[user_id] = []
         }
         for (var user in users) {
             if (users.hasOwnProperty(user)) {           
@@ -38,7 +38,7 @@ module.exports = {
                     if (args == flag) {
                         mentionHook.send(`${flag}`);
                         console.log(`[+] Adding flag to user ${user}`);
-                        users.set(user_id, [`${flag}`])
+                        users.push(user_id, users[user_id].push(args))
                     }
                 });
                 /*

@@ -7,7 +7,7 @@ module.exports = {
 	usage: '<flag>',
 	execute(message, args) {
 		message.channel.send(` : ${args}`);
-        fs.readFile('./databases.json', 'utf8', (err, data) => {
+        fs.readFile('./flags.json', 'utf8', (err, data) => {
             if (err) {
                 console.log(`Error reading file from disk: ${err}`);
             } else {     

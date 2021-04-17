@@ -17,12 +17,39 @@ client.on("guildMemberAdd", member => {
 	member.send(`Welcome the the server ${member}!`);
 });
 
+bot.on('guildMemberAdd', member => {
+    member.guild.channels.get('channelID').send("Welcome"); 
+});
+
 //Member Leave
 client.on("guildMemberRemove", member => {
 	member.guild.systemChannel.send(`${member} left the server 😢`).then(sentEmbed => {
 		sentEmbed.react("😢");
+		console.log(`${member} left`)
 	});
 });
+
+client.on('guildMemberAdd', member => {
+    member.roles.add(member.guild.roles.cache.find(i => i.name === 'Among The Server'))
+
+    const welcomeEmbed = new Discord.MessageEmbed()
+
+    welcomeEmbed.setColor('#5cf000')
+    welcomeEmbed.setTitle('**' + member.user.username + '** is now Among Us other **' + member.guild.memberCount + '** people')
+    welcomeEmbed.setImage('https://cdn.mos.cms.futurecdn.net/93GAa4wm3z4HbenzLbxWeQ-650-80.jpg.webp')
+
+    member.guild.channels.cache.find(i => i.name === 'greetings').send(welcomeEmbed)
+})
+
+client.on('guildMemberRemove', member => {
+    const goodbyeEmbed = new Discord.MessageEmbed()
+
+    goodbyeEmbed.setColor('#f00000')
+    goodbyeEmbed.setTitle('**' + member.user.username + '** was not the impostor there are **' + member.guild.memberCount + '** left Among Us')
+    goodbyeEmbed.setImage('https://gamewith-en.akamaized.net/article/thumbnail/rectangle/22183.png')
+
+    member.guild.channels.cache.find(i => i.name === 'greetings').send(goodbyeEmbed)
+})
 
 //Open all commands in ./commands dir
 for (const file of commandFiles) {

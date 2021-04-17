@@ -11,14 +11,11 @@ client.once('ready', () => {
 	console.log(`Logged in as '${client.user.tag}'\n`);
 	client.user.setActivity("");
 });
-/*
-//Member Join
-client.on("guildMemberAdd", member => {
-	member.send(`Welcome the the server ${member}!`);
-});
 
-bot.on('guildMemberAdd', member => {
-    member.guild.channels.get('channelID').send("Welcome"); 
+//Member Join
+client.on("guildMemberAdd", (member) => {
+	console.log(`New User "${member.user.username}" has joined "${member.guild.name}"` );
+	member.guild.channels.cache.find(c => c.name === "general").send(`"${member.user.username}" has joined this server`);
 });
 
 //Member Leave
@@ -28,7 +25,7 @@ client.on("guildMemberRemove", member => {
 		console.log(`${member} left`)
 	});
 });
-
+/*
 client.on('guildMemberAdd', member => {
 	console.log("joined")
     const welcomeEmbed = new Discord.MessageEmbed()
@@ -51,12 +48,6 @@ client.on('guildMemberRemove', member => {
     member.guild.channels.cache.find(i => i.name === 'greetings').send(goodbyeEmbed)
 })
 */
-
-client.on('guildMemberAdd', member => {
-	console.log("foobar")
-    channel = member.guild.channels.cache.get("channel id");
-    channel.send("Welcome " + member.displayName + "\n Member Count: " + member.guild.memberCount);
-})
 
 //Open all commands in ./commands dir
 for (const file of commandFiles) {

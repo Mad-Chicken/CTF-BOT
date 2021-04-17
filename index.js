@@ -11,16 +11,11 @@ client.once('ready', () => {
 	console.log(`Logged in as ${client.user.tag}`);
 });
 
+//Join
 client.on("guildMemberAdd", (member) => {
 	console.log(`New User "${member.user.username}" has joined "${member.guild.name}"` );
 	member.guild.channels.cache.find(c => c.name === "general").send(`"${member.user.username}" has joined this server`);
-});
-
-client.on('message', async message => {
-	// Join the same voice channel of the author of the message
-	if (message.member.voice.channel) {
-		const connection = await message.member.voice.channel.join();
-	}
+	member.send(`Welcome the the server ${member}!`);
 });
 
 //Member Leave
@@ -29,6 +24,13 @@ client.on("guildMemberRemove", member => {
 		sentEmbed.react("😢");
 		console.log(`${member} left`)
 	});
+});
+
+client.on('message', async message => {
+	// Join the same voice channel of the author of the message
+	if (message.member.voice.channel) {
+		const connection = await message.member.voice.channel.join();
+	}
 });
 
 //Open all commands in ./commands dir

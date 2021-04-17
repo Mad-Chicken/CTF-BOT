@@ -19,11 +19,6 @@ client.on('message', message => {
 	console.log(message.content);
 });
 
-if (message.content === '<>ping') {
-	// send back "Pong." to the channel the message was sent in
-	message.channel.send('Pong.');
-}
-
 client.on('message', async message => {
 	// Join the same voice channel of the author of the message
 	if (message.member.voice.channel) {

@@ -15,19 +15,19 @@ module.exports = {
                 console.log(`Error reading file from disk: ${err}`);
             } else {     
                 const users = JSON.parse(data);
-                if (user_id in users) {
-                    console.log(`[=] ${user_id} already in dict`);
-                } else {
-                    console.log(`[+] New user ${user_id}, adding to list`);
-                    users.put(user_id, [])
-                }
-                for (var user in users) {
-                    if (users.hasOwnProperty(user)) {           
-                        console.log(`[~] ${user} ${users[user]}`);
-                    }
-                }
             }
         });
+        if (user_id in users) {
+            console.log(`[=] ${user_id} already in dict`);
+        } else {
+            console.log(`[+] New user ${user_id}, adding to list`);
+            users.set(user_id, [])
+        }
+        for (var user in users) {
+            if (users.hasOwnProperty(user)) {           
+                console.log(`[~] ${user} ${users[user]}`);
+            }
+        }
         // get flags
         fs.readFile('./files/flags.json', 'utf8', (err, data) => {
             if (err) {
@@ -38,7 +38,7 @@ module.exports = {
                     if (args == flag) {
                         mentionHook.send(`${flag}`);
                         console.log(`[+] Adding flag to user ${user}`);
-                        users.put(user_id, [`${flag}`])
+                        users.set(user_id, [`${flag}`])
                     }
                 });
                 /*

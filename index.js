@@ -8,9 +8,9 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 
 //When ready
 client.once('ready', () => {
-	console.log(`Logged in as ${client.user.tag}`);
+	console.log(`Logged in as ${client.user.tag}\n`);
 	client.user.setActivity("Online", { type: 'WATCHING'});
-	client.user.setStatus("idle");
+//	client.user.setStatus("idle");
 });
 
 //Join

@@ -9,7 +9,7 @@ module.exports = {
 		message.channel.send(` : ${args}`);
         const mentionHook = new Discord.WebhookClient("833088941166952489", "qCLEk2Tm8qRZs3Qph0wR4-ghFvbHfWgOEiCRHZDaSMliS-rcgWWTXB4d65ZbLLJ5lQ3x");
         // get user data
-        fs.readFile('./user_flags.json', 'utf8', (err, data) => {
+        fs.readFile('./files/user_flags.json', 'utf8', (err, data) => {
             if (err) {
                 console.log(`Error reading file from disk: ${err}`);
             } else {     
@@ -20,7 +20,7 @@ module.exports = {
             }
         });
         // get flags
-        fs.readFile('./flags.json', 'utf8', (err, data) => {
+        fs.readFile('./files/flags.json', 'utf8', (err, data) => {
             if (err) {
                 console.log(`Error reading file from disk: ${err}`);
             } else {     

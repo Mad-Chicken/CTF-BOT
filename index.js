@@ -73,9 +73,9 @@ client.on('message', message => {
 	}
 
 //Member
-	if(command.memberRole) {
-		if (!(message.member.roles.cache.find(r => r.name === "Members"))) {
-			return message.channel.send(`${message.author} you need to be a member.`);
+	if(command.ctf_user) {
+		if (!(message.member.roles.cache.find(r => r.name === "ctf_user"))) {
+			return message.channel.send(`${message.author} you need to be a ctf user.`);
 		}
 	}
 
@@ -98,18 +98,6 @@ client.on('message', message => {
 	}
 });
 
-client.on('messageReactionAdd', async (reaction, user) => {
-	if (reaction.message.partial); await reaction.message.fetch();
-	if (reaction.partial) await reaction.fetch();
-
-	if (user.bot) return;
-	if (!reaction.message.guild) return;
-
-	if (reaction.emoji.name === '🍆') {
-		const reactionerID = reaction.message.guild.members.cache.get(user.id);
-		user.send(`Hey Bro Nice Dick ${reactionerID}!`);
-	}
-});
 
 // On reaction
 client.on('messageReactionAdd', async (reaction, user) => {
@@ -122,12 +110,6 @@ client.on('messageReactionAdd', async (reaction, user) => {
 	if ((reaction.message.channel.id === "801615591533707275") && (reaction.emoji.name === '🧠')) { //BigBrainGang
 		try {
 			reaction.message.guild.members.cache.get(user.id).roles.add('801546595460055087').catch()
-		} catch (error) {
-			console.log(error);
-		}
-	} else if ((reaction.message.channel.id === "801615591533707275") && (reaction.emoji.name === '🎵')) { //DJ
-		try {
-			reaction.message.guild.members.cache.get(user.id).roles.add('730252295916486768').catch()
 		} catch (error) {
 			console.log(error);
 		}
@@ -154,12 +136,6 @@ client.on("messageReactionRemove", async (reaction, user) => {
 		} catch (error) {
 			console.log(error);
 		}
-	} else if ((reaction.message.channel.id === "801615591533707275") && (reaction.emoji.name === '🎵')) {
-		try {
-			await reaction.message.guild.members.cache.get(user.id).roles.remove('730252295916486768')
-		} catch (error) {
-			console.log(error);
-		}
 	} else if ((reaction.message.channel.id === "801615591533707275") && (reaction.emoji.name === '🚱')) {
 		try {
 			await reaction.message.guild.members.cache.get(user.id).roles.remove('832998854957465620')
@@ -169,4 +145,4 @@ client.on("messageReactionRemove", async (reaction, user) => {
 	}
 });
 
-client.login(token);``
+client.login(token);

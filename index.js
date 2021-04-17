@@ -3,14 +3,16 @@ const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const client = new Discord.Client();
 
-client.commands = new Discord.Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+//client.commands = new Discord.Collection();
+//const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 //When ready
 client.once('ready', () => {
 	console.log(`Logged in as '${client.user.tag}'\n`);
 	client.user.setActivity("");
 });
+
+console.log("foobar")
 
 client.on("guildMemberAdd", (member) => {
 	console.log(`New User "${member.user.username}" has joined "${member.guild.name}"` );

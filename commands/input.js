@@ -16,13 +16,14 @@ module.exports = {
             } else {     
                 const users = JSON.parse(data);
                 if (user_id in users) {
-                    console.log("true");
+                    console.log(`[=] ${user_id} already in dict`);
                 } else {
-                    console.log("false");
+                    console.log(`[+] New user ${user_id}, adding to list`);
+                    users.put(user_id, [])
                 }
                 for (var user in users) {
                     if (users.hasOwnProperty(user)) {           
-                        console.log(user, users[user]);
+                        console.log(`[~] ${user} ${users[user]}`);
                     }
                 }
             }
@@ -36,6 +37,8 @@ module.exports = {
                 flags.forEach(flag => {
                     if (args == flag) {
                         mentionHook.send(`${flag}`);
+                        console.log(`[+] Adding flag to user ${user}`);
+                        users.put(user_id, [`${flag}`])
                     }
                 });
                 /*

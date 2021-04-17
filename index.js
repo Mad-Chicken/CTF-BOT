@@ -9,6 +9,14 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 //When ready
 client.once('ready', () => {
 	console.log(`Logged in as ${client.user.tag}`);
+	//client.user.setActivity("my code", { type: "STREAMING", url: "https://www.twitch.tv/shroud" })
+	client.user.setPresence({
+        game: { 
+            name: 'my code',
+            type: 'WATCHING'
+        },
+        status: 'idle'
+    })
 });
 
 //Join
@@ -24,13 +32,6 @@ client.on("guildMemberRemove", member => {
 		sentEmbed.react("😢");
 		console.log(`${member} left`)
 	});
-});
-
-client.on('message', async message => {
-	// Join the same voice channel of the author of the message
-	if (message.member.voice.channel) {
-		const connection = await message.member.voice.channel.join();
-	}
 });
 
 //Open all commands in ./commands dir
@@ -155,10 +156,12 @@ client.on("messageReactionRemove", async (reaction, user) => {
 });
 */
 
+/*
 // debug
 client.on("debug", function(info){
     console.log(`debug -> ${info}`);
 });
+*/
 
 // warning
 client.on("warn", function(info){

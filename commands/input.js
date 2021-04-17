@@ -13,10 +13,12 @@ module.exports = {
             if (err) {
                 console.log(`Error reading file from disk: ${err}`);
             } else {     
-                const user_flags = JSON.parse(data);
-                user_flags.forEach(user => {
-                    console.log(`${user}`);
-                });
+                const users = JSON.parse(data);
+                for (var user in users) {
+                    if (dictionary.hasOwnProperty(key)) {           
+                        console.log(user, users[user]);
+                    }
+                }
             }
         });
         // get flags

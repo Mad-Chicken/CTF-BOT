@@ -2,9 +2,9 @@ version: "3"
 
 # More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
 services:
-  discord.js:
-    container_name: discord.js
-    image: my_discord.js
+  ctf-bot:
+    container_name: ctf-bot
+    image: ctf-bot
     build:
       context: .
     ports:

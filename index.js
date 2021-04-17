@@ -11,7 +11,7 @@ client.once('ready', () => {
 	console.log(`Logged in as '${client.user.tag}'\n`);
 	client.user.setActivity("");
 });
-
+/*
 //Member Join
 client.on("guildMemberAdd", member => {
 	member.send(`Welcome the the server ${member}!`);
@@ -28,7 +28,7 @@ client.on("guildMemberRemove", member => {
 		console.log(`${member} left`)
 	});
 });
-
+*/
 client.on('guildMemberAdd', member => {
     member.roles.add(member.guild.roles.cache.find(i => i.name === 'Among The Server'))
 

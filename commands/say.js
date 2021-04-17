@@ -3,6 +3,7 @@ module.exports = {
 	aliases: ['tell', 'talk'],
 	usage: '<message>',
 	description: 'Get meme',
+	guildOnly: true,
 	devRole: true,
     execute(message, args) {
 		message.delete();

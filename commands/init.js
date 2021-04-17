@@ -3,6 +3,7 @@ module.exports = {
 	aliases: ['roles', 'borked'],
 	usage: '<>',
 	description: 'Print role speal',
+	guildOnly: true,
 	devRole: true,
     execute(message) {
 		message.delete();

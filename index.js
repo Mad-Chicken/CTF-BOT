@@ -9,9 +9,8 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 //When ready
 client.once('ready', () => {
 	console.log(`Logged in as ${client.user.tag}`);
-	//client.user.setActivity("my code", { type: "STREAMING", url: "https://www.twitch.tv/shroud" })
-	client.user.setActivity("my code", { type: "WATCHING"})
-	client.user.setStatus("online");
+	client.user.setActivity("Online", { type: 'WATCHING'});
+	client.user.setStatus("idle");
 });
 
 //Join

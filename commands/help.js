@@ -1,6 +1,7 @@
 module.exports = {
 	name: 'help',
 	description: 'help!',
+	guildOnly: true,
 	aliases: ['commands', 'whatis'],
 	usage: '[command name]',
 	devRole: true,

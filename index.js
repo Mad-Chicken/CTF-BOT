@@ -1,4 +1,4 @@
-const fs = require('fs');
+//const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const client = new Discord.Client();
@@ -8,7 +8,7 @@ const client = new Discord.Client();
 
 //When ready
 client.once('ready', () => {
-	console.log(`Logged in as '${client.user.tag}'\n`);
+	console.log(`Logged in as ${client.user.tag}`);
 });
 
 client.on('guildMemberAdd', member => {

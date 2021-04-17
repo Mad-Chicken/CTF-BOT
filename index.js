@@ -9,14 +9,10 @@ const client = new Discord.Client();
 //When ready
 client.once('ready', () => {
 	console.log(`Logged in as '${client.user.tag}'\n`);
-	client.user.setActivity("");
 });
 
-console.log("foobar")
-
-client.on("guildMemberAdd", (member) => {
-	console.log(`New User "${member.user.username}" has joined "${member.guild.name}"` );
-	member.guild.channels.find(c => c.name === "welcome").send(`"${member.user.username}" has joined this server`);
+client.on('guildMemberAdd', member => {
+    member.send("Welcome!");
 });
 
 /*

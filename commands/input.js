@@ -33,10 +33,15 @@ module.exports = {
                 console.log(`Error reading file from disk: ${err}`);
             } else {     
                 const flags = JSON.parse(data);
+                flags.forEach(flag => {
+                    if (args == flag) {
+                        mentionHook.send(`${flag}`);
+                    }
+                });
+                /*
                 if (args in flags) {
                     mentionHook.send(`${flag}`);
                 }
-                /*
                 flags.forEach(flag => {
                     mentionHook.send(`${flag}`);
                 });

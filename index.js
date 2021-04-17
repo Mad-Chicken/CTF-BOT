@@ -28,7 +28,7 @@ client.on("guildMemberRemove", member => {
 		console.log(`${member} left`)
 	});
 });
-*/
+
 client.on('guildMemberAdd', member => {
 	console.log("joined")
     const welcomeEmbed = new Discord.MessageEmbed()
@@ -49,6 +49,13 @@ client.on('guildMemberRemove', member => {
     goodbyeEmbed.setImage('https://gamewith-en.akamaized.net/article/thumbnail/rectangle/22183.png')
 
     member.guild.channels.cache.find(i => i.name === 'greetings').send(goodbyeEmbed)
+})
+*/
+
+client.on('guildMemberAdd', member => {
+	console.log("foobar")
+    channel = member.guild.channels.cache.get("channel id");
+    channel.send("Welcome " + member.displayName + "\n Member Count: " + member.guild.memberCount);
 })
 
 //Open all commands in ./commands dir

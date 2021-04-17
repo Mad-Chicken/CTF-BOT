@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'role_start',
+    name: 'init',
 	aliases: ['roles', 'borked'],
 	usage: '<>',
 	description: 'Print role speal',

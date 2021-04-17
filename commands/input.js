@@ -15,7 +15,7 @@ module.exports = {
             } else {     
                 const users = JSON.parse(data);
                 for (var user in users) {
-                    if (users.hasOwnProperty(key)) {           
+                    if (users.hasOwnProperty(user)) {           
                         console.log(user, users[user]);
                     }
                 }

@@ -148,12 +148,12 @@ client.on("messageReactionRemove", async (reaction, user) => {
 		}
 	}
 });
-*/
 
 // debug
 client.on("debug", function(info){
     console.log(`debug -> ${info}`);
 });
+*/
 
 // warning
 client.on("warn", function(info){

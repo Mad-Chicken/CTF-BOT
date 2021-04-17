@@ -1,0 +1,17 @@
+module.exports = {
+    name: 'role_start',
+	aliases: ['roles', 'borked'],
+	usage: '<>',
+	description: 'Print role speal',
+	devRole: true,
+    execute(message) {
+		message.delete();
+		message.channel.send(foobar).then(sentEmbed => {
+		    sentEmbed.react("🧠")
+		    sentEmbed.react("🎵")
+		});
+		if (args.length > 0 ) {
+			message.channel.send(args.join());
+		}
+    },
+};

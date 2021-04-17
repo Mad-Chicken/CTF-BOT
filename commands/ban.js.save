@@ -1,0 +1,26 @@
+module.exports = {
+	name: 'ban',
+    description: 'ban',
+    aliases: ['exile'],
+	guildOnly: true,
+	args: true,
+	adminRole: true,
+	usage: '<user> <reason>',
+	execute(message, args) {
+/*
+		var reason = args.slice(1).join(' ');
+		try {
+			await message.guild.members.ban(user, { reason });
+		} catch (error) {
+			return message.channel.send(`Failed to ban **${user.tag}**: ${error}`);
+		}
+		message.channel.send(`Successfully banned **${user.tag}** from the server!`);
+*//*
+		const taggedUser = message.mentions.users.first();
+        message.channel.send(`You wanted to ban: ${taggedUser.username}`);
+        message.react('⚒️');
+        const member = message.mentions.members.first();
+        member.ban();
+*/
+	},
+};

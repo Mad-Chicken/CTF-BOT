@@ -12,8 +12,7 @@ module.exports = {
         // get user data
         try {
             var users_raw = fs.readFileSync('./files/user_flags.json', 'utf8');
-            console.log("GOT JSON");
-            console.log(JSON.parse(data));  
+            console.log(JSON.parse(users_raw));  
         } catch(e) {
             console.log('Error:', e.stack);
         }
@@ -48,7 +47,7 @@ module.exports = {
                 flags.forEach(flag => {
                     if (args == flag) {
                         mentionHook.send(`${flag}`);
-                        console.log(`[+] Adding flag to user ${user}`);
+                        console.log(`[+] Adding flag to user ${user_id}`);
                         users.push(user_id, users[user_id].push(args))
                     }
                 });

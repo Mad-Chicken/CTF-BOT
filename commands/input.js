@@ -50,7 +50,8 @@ module.exports = {
                         console.log(`[+] Adding flag to user ${user_id}`);
 //                        users.push(user_id, users[user_id].push(args))
                         Q = users[user_id];
-                        Q.push(flag);
+                        console.log(JSON.parse(Q));
+                        Q.push([flag]);
                         console.log(JSON.parse(Q));
                         users[user_id] = Q
                     }

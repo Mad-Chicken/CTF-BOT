@@ -14,7 +14,7 @@ module.exports = {
         try {
             var users_raw = fs.readFileSync('./files/user_flags.json', 'utf8');
         } catch(e) {
-            console.log('Error:', e.stack);
+            console.log('[!] Error:', e.stack);
         }
         var users = JSON.parse(users_raw)
         if (user_id in users) {
@@ -27,17 +27,18 @@ module.exports = {
         for (let user in users) {
             if (users.hasOwnProperty(user)) {           
                 console.log(`[~] ${user} ${users[user]}`);
+                console.log('\n');
             }
         }
         // get flags
         try {
             var flags_raw = fs.readFileSync('./files/flags.json', 'utf8');
         } catch(e) {
-            console.log('Error:', e.stack);
+            console.log('[!] Error:', e.stack);
         }
         var flags = JSON.parse(flags_raw);
         for (let flag in flags) {
-            if (args == flag) {
+            if (args == flag && !(flag in users[user_id])) {
                 mentionHook.send(`${flag}`);
                 console.log(`[+] Adding flag: ${flag} to user: ${user_id}`);
                 Q = users[user_id];
@@ -50,9 +51,9 @@ module.exports = {
         if (write2file == true) {
             fs.writeFile('./files/user_flags.json', JSON.stringify(users), 'utf8', (err) => {
                 if (err) {
-                    console.log(`Error writing file users for ${user_id}: ${err}`);
+                    console.log(`[!] Error writing file users for ${user_id}: ${err}`);
                 } else {
-                    console.log(`users written to file successfully!`);
+                    console.log(`[+] users written to file successfully!`);
                 }
             });
         }

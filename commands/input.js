@@ -11,11 +11,13 @@ module.exports = {
         const mentionHook = new Discord.WebhookClient("833088941166952489", "qCLEk2Tm8qRZs3Qph0wR4-ghFvbHfWgOEiCRHZDaSMliS-rcgWWTXB4d65ZbLLJ5lQ3x");
         // get user data
         try {
-            var users = fs.readFileSync('./files/user_flags.json', 'utf8');
+            var users_raw = fs.readFileSync('./files/user_flags.json', 'utf8');
+            console.log("GOT JSON");
             console.log(JSON.parse(data));  
         } catch(e) {
             console.log('Error:', e.stack);
         }
+        var users = JSON.parse(users_raw)
 /*
         fs.readFile('./files/user_flags.json', 'utf8', (err, data) => {
             if (err) {
@@ -32,7 +34,7 @@ module.exports = {
             console.log(`[+] New user ${user_id}, adding to list`);
             users[user_id] = []
         }
-        for (var user in users) {
+        for (let user in users) {
             if (users.hasOwnProperty(user)) {           
                 console.log(`[~] ${user} ${users[user]}`);
             }

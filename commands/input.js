@@ -9,14 +9,15 @@ module.exports = {
 //		message.channel.send(`${message.author.id} : ${args}`);
         var user_id = message.author.id;
         const mentionHook = new Discord.WebhookClient("833088941166952489", "qCLEk2Tm8qRZs3Qph0wR4-ghFvbHfWgOEiCRHZDaSMliS-rcgWWTXB4d65ZbLLJ5lQ3x");
-        // get user data
         var write2file = false;
+        // Gets user data from the file
         try {
             var users_raw = fs.readFileSync('./files/user_flags.json', 'utf8');
         } catch(e) {
             console.log('[!] Error:', e.stack);
         }
         var users = JSON.parse(users_raw)
+        // Adds user if they do not exist in the list
         if (user_id in users) {
             console.log(`[=] ${user_id} already in dict`);
         } else {
@@ -24,6 +25,7 @@ module.exports = {
             users[user_id] = [];
             write2file = true;
         }
+// For testing
         for (let user in users) {
             if (users.hasOwnProperty(user)) {           
                 console.log(`[~] ${user} ${users[user]}`);
@@ -37,10 +39,12 @@ module.exports = {
             console.log('[!] Error:', e.stack);
         }
         var flags = JSON.parse(flags_raw);
+        // test if a flag and/or new flag to the user
         for (let flag in flags) {
             if (args == flags[flag] && !(flags[flag] in users[user_id])) {
                 console.log(`[+] Adding flag: ${flags[flag]} to user: ${user_id}`);
-                mentionHook.send(`<@${user_id}> has gotten flag: ${flags[flag]}`);
+                // Send webhook
+                mentionHook.send(`<@${user_id}> has captured a flag!`);
                 Q = users[user_id];
                 Q.push([flags[flag]]);
                 users[user_id] = Q;

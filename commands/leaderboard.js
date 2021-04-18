@@ -6,16 +6,26 @@ module.exports = {
 	guildOnly: true,
 	devRole: true,
     execute(message) {
+		// Delete command creating leaderboard
 		message.delete();
+		try {
+            var users_raw = fs.readFileSync('./files/user_flags.json', 'utf8');
+        } catch(e) {
+            console.log('[!] Error:', e.stack);
+        }
+		var users = JSON.parse(users_raw)
+		let output_data = "Leaderboard";
+		for (let user in users) {
+            if (users.hasOwnProperty(user)) {           
+                console.log(`[~] ${user} ${users[user].length}`);
+				output_data.concat(`\n${user}\t`, users[user].length);
+            }
+        }
 		message.channel.send(`
-		𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐭𝐡𝐞 𝐇𝐚𝐧𝐠𝐨𝐮𝐭 𝐒𝐞𝐫𝐯𝐞𝐫
-
-		Read info about commands & the server at #📋info 
+		${output_data}
 		
 		`).then(sentEmbed => {
-		    sentEmbed.react("🧠")
-		    sentEmbed.react("🎵")
-			sentEmbed.react('🚱')
+		    sentEmbed.react("🚱")
 		});
     },
 };

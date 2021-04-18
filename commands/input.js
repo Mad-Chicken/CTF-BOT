@@ -45,7 +45,7 @@ module.exports = {
         for (let flag in users[user_id]) {
             if (users[user_id].hasOwnProperty(flag)) {    
                 console.log(flag);
-                console.log(`[~] ${users[user_id][foo]} ${users[user_id]}`);
+                console.log(`[~] ${users[user_id][flag]} ${users[user_id]}`);
             }
         }
 

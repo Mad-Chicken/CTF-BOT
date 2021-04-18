@@ -34,7 +34,7 @@ module.exports = {
             console.log('Error:', e.stack);
         }
         var flags = JSON.parse(flags_raw)
-        flags.forEach(flag => {
+        for (let flag in flags) {
             if (args == flag) {
                 mentionHook.send(`${flag}`);
                 console.log(`[+] Adding flag: ${flag} to user: ${user_id}`);
@@ -42,7 +42,7 @@ module.exports = {
                 Q.push([flag]);
                 users[user_id] = Q
             }
-        });
+        }
         // write flag file
         fs.writeFile('./user.json', data, 'utf8', (err) => {
             if (err) {

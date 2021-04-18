@@ -11,7 +11,7 @@ module.exports = {
         const mentionHook = new Discord.WebhookClient("833088941166952489", "qCLEk2Tm8qRZs3Qph0wR4-ghFvbHfWgOEiCRHZDaSMliS-rcgWWTXB4d65ZbLLJ5lQ3x");
         // get user data
         try {
-            var users = fs.readFile('./files/user_flags.json', 'utf8');
+            var users = fs.readFileSync('./files/user_flags.json', 'utf8');
             console.log(JSON.parse(data));  
         } catch(e) {
             console.log('Error:', e.stack);

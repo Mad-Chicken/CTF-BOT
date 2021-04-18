@@ -27,8 +27,8 @@ module.exports = {
         for (let user in users) {
             if (users.hasOwnProperty(user)) {           
                 console.log(`[~] ${user} ${users[user]}`);
-                console.log('\n');
             }
+            console.log('\n');
         }
         // get flags
         try {

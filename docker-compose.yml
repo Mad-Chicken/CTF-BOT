@@ -9,4 +9,6 @@ services:
       context: .
     ports:
       - "8123"
+    volumes:
+      - ~:/home/node/files
     restart: unless-stopped

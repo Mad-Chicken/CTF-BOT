@@ -47,12 +47,12 @@ module.exports = {
                 flags.forEach(flag => {
                     if (args == flag) {
                         mentionHook.send(`${flag}`);
-                        console.log(`[+] Adding flag to user ${user_id}`);
+                        console.log(`[+] Adding ${flag} to user ${user_id}`);
 //                        users.push(user_id, users[user_id].push(args))
                         Q = users[user_id];
-                        console.log(JSON.parse(Q));
+                        console.log(Q);
                         Q.push([flag]);
-                        console.log(JSON.parse(Q));
+                        console.log(Q);
                         users[user_id] = Q
                     }
                 });

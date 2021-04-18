@@ -6,7 +6,7 @@ module.exports = {
 	args: true,
 	usage: '<flag>',
 	execute(message, args) {
-		message.channel.send(`${message.author.id} : ${args}`);
+//		message.channel.send(`${message.author.id} : ${args}`);
         var user_id = message.author.id;
         const mentionHook = new Discord.WebhookClient("833088941166952489", "qCLEk2Tm8qRZs3Qph0wR4-ghFvbHfWgOEiCRHZDaSMliS-rcgWWTXB4d65ZbLLJ5lQ3x");
         // get user data
@@ -37,17 +37,10 @@ module.exports = {
             console.log('[!] Error:', e.stack);
         }
         var flags = JSON.parse(flags_raw);
-        console.log("Flags")
-        for (let flag in flags) {
-            if (flags.hasOwnProperty(flag)) {           
-                console.log(`[~] ${flag} ${flags[flag]}`);
-            }
-        }
-        console.log("\n");
         for (let flag in flags) {
             if (args == flags[flag] && !(flags[flag] in users[user_id])) {
-                mentionHook.send(`${flags[flag]}`);
                 console.log(`[+] Adding flag: ${flags[flag]} to user: ${user_id}`);
+                mentionHook.send(`<@${user_id}> has gotten flag: ${flags[flag]}`);
                 Q = users[user_id];
                 Q.push([flags[flag]]);
                 users[user_id] = Q;

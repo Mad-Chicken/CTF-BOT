@@ -21,7 +21,7 @@ module.exports = {
             if (users.hasOwnProperty(user)) {     
 				console.log(`[~] ${user} ${users[user]}`);      
                 console.log(`[~] ${user} ${users[user].length}`);
-				//output_data.concat(`\n${user}\t`, users[user].length);
+				output_data.concat(`\n${user}\t`, users[user].length);
             }
         }
 		message.channel.send(`

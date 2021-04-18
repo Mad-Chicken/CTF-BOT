@@ -39,6 +39,13 @@ module.exports = {
             console.log('[!] Error:', e.stack);
         }
         var flags = JSON.parse(flags_raw);
+
+        for (let foo in users[user_id]) {
+            if (users.hasOwnProperty(user)) {           
+                console.log(`[~] ${users[user_id][foo]} ${users[user_id]}`);
+            }
+        }
+
         // test if a flag and/or new flag to the user
         for (let flag in flags) {
             if (args == flags[flag] && !(flags[flag] in users[user_id])) {

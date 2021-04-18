@@ -43,8 +43,6 @@ module.exports = {
         console.log(`[=] ${user_id} attempting to capture flag: ${args[0]}`);
         // test if a flag and/or new flag to the user
         for (let flag in flags) {
-            console.log(users[user_id].includes(args[0]));
-            //if (args == flags[flag] && !(flags[flag] in users[user_id])) {
             if (args[0] == flags[flag] && !(users[user_id].includes(args[0]))) {
                 console.log(`[+] Adding flag: ${flags[flag]} to user: ${user_id}`);
                 // Send webhook

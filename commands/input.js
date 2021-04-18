@@ -12,21 +12,10 @@ module.exports = {
         // get user data
         try {
             var users_raw = fs.readFileSync('./files/user_flags.json', 'utf8');
-//            console.log(JSON.parse(users_raw));  
         } catch(e) {
             console.log('Error:', e.stack);
         }
         var users = JSON.parse(users_raw)
-/*
-        fs.readFile('./files/user_flags.json', 'utf8', (err, data) => {
-            if (err) {
-                console.log(`Error reading file from disk: ${err}`);
-            } else {     
-                var users = JSON.parse(data);
-                                                        // Return out of area
-            }
-        });
-        */
         if (user_id in users) {
             console.log(`[=] ${user_id} already in dict`);
         } else {
@@ -38,32 +27,28 @@ module.exports = {
                 console.log(`[~] ${user} ${users[user]}`);
             }
         }
-        // get flags
-        fs.readFile('./files/flags.json', 'utf8', (err, data) => {
+                // get flags
+        try {
+            var flags_raw = fs.readFileSync('./files/flags.json', 'utf8');
+        } catch(e) {
+            console.log('Error:', e.stack);
+        }
+        var flags = JSON.parse(flags_raw)
+        flags.forEach(flag => {
+            if (args == flag) {
+                mentionHook.send(`${flag}`);
+                console.log(`[+] Adding flag: ${flag} to user: ${user_id}`);
+                Q = users[user_id];
+                Q.push([flag]);
+                users[user_id] = Q
+            }
+        });
+        // write user file
+        fs.writeFile('./files/user_flags.json', users, 'utf8', (err) => {
             if (err) {
-                console.log(`Error reading file from disk: ${err}`);
-            } else {     
-                const flags = JSON.parse(data);
-                flags.forEach(flag => {
-                    if (args == flag) {
-                        mentionHook.send(`${flag}`);
-                        console.log(`[+] Adding ${flag} to user ${user_id}`);
-//                        users.push(user_id, users[user_id].push(args))
-                        Q = users[user_id];
-                        console.log(Q);
-                        Q.push([flag]);
-                        console.log(Q);
-                        users[user_id] = Q
-                    }
-                });
-                /*
-                if (args in flags) {
-                    mentionHook.send(`${flag}`);
-                }
-                flags.forEach(flag => {
-                    mentionHook.send(`${flag}`);
-                });
-                */
+                console.log(`Error writing file users for ${user_id}: ${err}`);
+            } else {
+                console.log(`users written to file successfully!`);
             }
         });
 	},

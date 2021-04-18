@@ -11,9 +11,9 @@ services:
       - "8123"
     volumes:
       - type: volume
-        source: flag_files
+        source: flagfiles
         target: /home/node/files
     restart: unless-stopped
 
 volumes:
-  flag_files:
+  flagfiles:

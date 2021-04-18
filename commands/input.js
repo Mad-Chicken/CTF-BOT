@@ -38,6 +38,12 @@ module.exports = {
         }
         var flags = JSON.parse(flags_raw);
         for (let flag in flags) {
+            if (flags.hasOwnProperty(flag)) {           
+                console.log(`[~] ${flag} ${flags[flag]}`);
+            }
+        }
+        console.log("\n");
+        for (let flag in flags) {
             if (args == flag && !(flag in users[user_id])) {
                 mentionHook.send(`${flag}`);
                 console.log(`[+] Adding flag: ${flag} to user: ${user_id}`);

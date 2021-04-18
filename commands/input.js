@@ -52,9 +52,9 @@ module.exports = {
         // test if a flag and/or new flag to the user
         for (let flag in flags) {
             console.log(flags[flag]);
-            console.log(users[user_id].incldues(flags[flag]));
+            console.log(users[user_id].includes(flags[flag]));
             //if (args == flags[flag] && !(flags[flag] in users[user_id])) {
-            if (args == flags[flag] && !(users[user_id].incldues(flags[flag]))) {
+            if (args == flags[flag] && !(users[user_id].includes(flags[flag]))) {
                 console.log(`[+] Adding flag: ${flags[flag]} to user: ${user_id}`);
                 // Send webhook
                 mentionHook.send(`<@${user_id}> has captured a flag!`);

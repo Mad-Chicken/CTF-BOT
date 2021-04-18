@@ -25,13 +25,6 @@ module.exports = {
             users[user_id] = [];
             write2file = true;
         }
-// For testing
-        for (let user in users) {
-            if (users.hasOwnProperty(user)) {           
-                console.log(`[~] ${user} ${users[user]}`);
-            }
-        }
-        console.log('\n');
         // get flags
         try {
             var flags_raw = fs.readFileSync('./files/flags.json', 'utf8');

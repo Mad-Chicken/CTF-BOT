@@ -10,6 +10,7 @@ module.exports = {
         var user_id = message.author.id;
         const mentionHook = new Discord.WebhookClient("833088941166952489", "qCLEk2Tm8qRZs3Qph0wR4-ghFvbHfWgOEiCRHZDaSMliS-rcgWWTXB4d65ZbLLJ5lQ3x");
         // get user data
+        var write2file = false;
         try {
             var users_raw = fs.readFileSync('./files/user_flags.json', 'utf8');
         } catch(e) {
@@ -20,7 +21,8 @@ module.exports = {
             console.log(`[=] ${user_id} already in dict`);
         } else {
             console.log(`[+] New user ${user_id}, adding to list`);
-            users[user_id] = []
+            users[user_id] = [];
+            write2file = true;
         }
         for (let user in users) {
             if (users.hasOwnProperty(user)) {           
@@ -40,16 +42,19 @@ module.exports = {
                 console.log(`[+] Adding flag: ${flag} to user: ${user_id}`);
                 Q = users[user_id];
                 Q.push([flag]);
-                users[user_id] = Q
+                users[user_id] = Q;
+                write2file = true;
             }
         }
         // write flag file
-        fs.writeFile('./files/user_flags.json', JSON.stringify(users), 'utf8', (err) => {
-            if (err) {
-                console.log(`Error writing file users for ${user_id}: ${err}`);
-            } else {
-                console.log(`users written to file successfully!`);
-            }
-        });
+        if (write2file == true) {
+            fs.writeFile('./files/user_flags.json', JSON.stringify(users), 'utf8', (err) => {
+                if (err) {
+                    console.log(`Error writing file users for ${user_id}: ${err}`);
+                } else {
+                    console.log(`users written to file successfully!`);
+                }
+            });
+        }
 	},
 };

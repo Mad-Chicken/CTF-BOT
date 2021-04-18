@@ -40,19 +40,9 @@ module.exports = {
         }
         var flags = JSON.parse(flags_raw);
 
-        console.log(users[user_id]);
-        
-        for (let flag in users[user_id]) {
-            if (users[user_id].hasOwnProperty(flag)) {    
-                console.log(flag);
-                console.log(`[~] ${users[user_id][flag]} ${users[user_id]}`);
-            }
-        }
         console.log(`[=] ${user_id} attempting to capture flag: ${args[0]}`);
         // test if a flag and/or new flag to the user
         for (let flag in flags) {
-            console.log(flags[flag]);
-            console.log(args[0]);
             console.log(users[user_id].includes(args[0]));
             //if (args == flags[flag] && !(flags[flag] in users[user_id])) {
             if (args[0] == flags[flag] && !(users[user_id].includes(args[0]))) {
@@ -60,7 +50,7 @@ module.exports = {
                 // Send webhook
                 mentionHook.send(`<@${user_id}> has captured a flag!`);
                 Q = users[user_id];
-                Q.push([flags[flag]]);
+                Q.push(flags[flag]);
                 users[user_id] = Q;
                 write2file = true;
             }

@@ -33,7 +33,8 @@ module.exports = {
         } catch(e) {
             console.log('Error:', e.stack);
         }
-        var flags = JSON.parse(flags_raw)
+        var flags = JSON.parse(flags_raw);
+        console.log(flags);
         for (let flag in flags) {
             if (args == flag) {
                 mentionHook.send(`${flag}`);
@@ -44,11 +45,11 @@ module.exports = {
             }
         }
         // write flag file
-        fs.writeFile('./user.json', data, 'utf8', (err) => {
+        fs.writeFile('./files/user_flags.json', users, 'utf8', (err) => {
             if (err) {
-                console.log(`Error writing file: ${err}`);
+                console.log(`Error writing file users for ${user_id}: ${err}`);
             } else {
-                console.log(`File is written successfully!`);
+                console.log(`users written to file successfully!`);
             }
         });
 	},

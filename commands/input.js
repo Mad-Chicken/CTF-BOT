@@ -27,7 +27,7 @@ module.exports = {
                 console.log(`[~] ${user} ${users[user]}`);
             }
         }
-                // get flags
+        // get flags
         try {
             var flags_raw = fs.readFileSync('./files/flags.json', 'utf8');
         } catch(e) {
@@ -43,12 +43,12 @@ module.exports = {
                 users[user_id] = Q
             }
         });
-        // write user file
-        fs.writeFile('./files/user_flags.json', users, 'utf8', (err) => {
+        // write flag file
+        fs.writeFile('./user.json', data, 'utf8', (err) => {
             if (err) {
-                console.log(`Error writing file users for ${user_id}: ${err}`);
+                console.log(`Error writing file: ${err}`);
             } else {
-                console.log(`users written to file successfully!`);
+                console.log(`File is written successfully!`);
             }
         });
 	},

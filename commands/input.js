@@ -28,8 +28,8 @@ module.exports = {
             if (users.hasOwnProperty(user)) {           
                 console.log(`[~] ${user} ${users[user]}`);
             }
-            console.log('\n');
         }
+        console.log('\n');
         // get flags
         try {
             var flags_raw = fs.readFileSync('./files/flags.json', 'utf8');

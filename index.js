@@ -13,21 +13,6 @@ client.once('ready', () => {
 //	client.user.setStatus("idle");
 });
 
-//Join
-client.on("guildMemberAdd", (member) => {
-	console.log(`New User "${member.user.username}" has joined "${member.guild.name}"` );
-	member.guild.channels.cache.find(c => c.name === "general").send(`"${member.user.username}" has joined this server`);
-	member.send(`Welcome the the server ${member}!`);
-});
-
-//Member Leave
-client.on("guildMemberRemove", member => {
-	member.guild.systemChannel.send(`${member} left the server 😢`).then(sentEmbed => {
-		sentEmbed.react("😢");
-		console.log(`${member} left`)
-	});
-});
-
 //Open all commands in ./commands dir
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
@@ -76,7 +61,7 @@ client.on('message', message => {
 		}
 	}
 
-//Member
+//Check Role ctf_user
 	if(command.ctf_user) {
 		if (!(message.member.roles.cache.find(r => r.name === "ctf_user"))) {
 			return message.channel.send(`${message.author} you need to be a ctf user.`);
@@ -103,52 +88,6 @@ client.on('message', message => {
 });
 
 /*
-// On reaction
-client.on('messageReactionAdd', async (reaction, user) => {
-	if (reaction.message.partial); await reaction.message.fetch();
-	if (reaction.partial) await reaction.fetch();
-
-	if (user.bot) return;
-	if (!reaction.message.guild) return;
-
-	if ((reaction.message.channel.id === "801615591533707275") && (reaction.emoji.name === '🧠')) { //BigBrainGang
-		try {
-			reaction.message.guild.members.cache.get(user.id).roles.add('801546595460055087').catch()
-		} catch (error) {
-			console.log(error);
-		}
-	} else if ((reaction.message.channel.id === "801615591533707275") && (reaction.emoji.name === '🚱')) { //Not sure
-		try {
-			reaction.message.guild.members.cache.get(user.id).roles.add('832998854957465620').catch()
-		} catch (error) {
-			console.log(error);
-		}
-	}
-});
-
-//Off reaction
-client.on("messageReactionRemove", async (reaction, user) => {
-	if (reaction.message.partial); await reaction.message.fetch();
-	if (reaction.partial) await reaction.fetch();
-
-	if (user.bot) return;
-	if (!reaction.message.guild) return;
-
-	if ((reaction.message.channel.id === "801615591533707275") && (reaction.emoji.name === '🧠')) {
-		try {
-			await reaction.message.guild.members.cache.get(user.id).roles.remove('801546595460055087')
-		} catch (error) {
-			console.log(error);
-		}
-	} else if ((reaction.message.channel.id === "801615591533707275") && (reaction.emoji.name === '🚱')) {
-		try {
-			await reaction.message.guild.members.cache.get(user.id).roles.remove('832998854957465620')
-		} catch (error) {
-			console.log(error);
-		}
-	}
-});
-
 // debug
 client.on("debug", function(info){
     console.log(`debug -> ${info}`);

@@ -14,7 +14,8 @@ module.exports = {
             if (err) {
                 console.log(`Error reading file from disk: ${err}`);
             } else {     
-                return users = JSON.parse(data);
+                var users = JSON.parse(data);
+                                                        // Return out of area
             }
         });
         if (user_id in users) {

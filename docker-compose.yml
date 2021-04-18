@@ -10,8 +10,6 @@ services:
     ports:
       - "8123"
     volumes:
-      - flagFiles:/home/node/files
-    volumes:
       - type: volume
         source: flag_files
         target: /home/node/files

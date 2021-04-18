@@ -10,10 +10,10 @@ services:
     ports:
       - "8123"
     volumes:
-      - type: volume
-        source: flagfiles
-        target: /home/node/files
+      - myapp:/home/node/files
     restart: unless-stopped
 
+
+    
 volumes:
-  flagfiles:
+  myapp:

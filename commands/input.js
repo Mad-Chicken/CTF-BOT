@@ -48,14 +48,14 @@ module.exports = {
                 console.log(`[~] ${users[user_id][flag]} ${users[user_id]}`);
             }
         }
-        console.log(`[=] ${user_id} attempting to capture flag: ${args}`);
+        console.log(`[=] ${user_id} attempting to capture flag: ${args[0]}`);
         // test if a flag and/or new flag to the user
         for (let flag in flags) {
             console.log(flags[flag]);
-            console.log(args);
-            console.log(users[user_id].includes(args));
+            console.log(args[0]);
+            console.log(users[user_id].includes(args[0]));
             //if (args == flags[flag] && !(flags[flag] in users[user_id])) {
-            if (args == flags[flag] && !(users[user_id].includes(args))) {
+            if (args[0] == flags[flag] && !(users[user_id].includes(args[0]))) {
                 console.log(`[+] Adding flag: ${flags[flag]} to user: ${user_id}`);
                 // Send webhook
                 mentionHook.send(`<@${user_id}> has captured a flag!`);

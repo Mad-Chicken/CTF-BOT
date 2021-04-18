@@ -37,6 +37,7 @@ module.exports = {
             console.log('[!] Error:', e.stack);
         }
         var flags = JSON.parse(flags_raw);
+        console.log("Flags")
         for (let flag in flags) {
             if (flags.hasOwnProperty(flag)) {           
                 console.log(`[~] ${flag} ${flags[flag]}`);
@@ -44,11 +45,11 @@ module.exports = {
         }
         console.log("\n");
         for (let flag in flags) {
-            if (args == flag && !(flag in users[user_id])) {
-                mentionHook.send(`${flag}`);
-                console.log(`[+] Adding flag: ${flag} to user: ${user_id}`);
+            if (args == flags[flag] && !(flags[flag] in users[user_id])) {
+                mentionHook.send(`${flags[flag]}`);
+                console.log(`[+] Adding flag: ${flags[flag]} to user: ${user_id}`);
                 Q = users[user_id];
-                Q.push([flag]);
+                Q.push([flags[flag]]);
                 users[user_id] = Q;
                 write2file = true;
             }

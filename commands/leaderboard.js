@@ -22,7 +22,7 @@ module.exports = {
             if (users.hasOwnProperty(user)) {     
 				console.log(`[~] ${user} ${users[user]}`);      
                 console.log(`[~] ${user} ${users[user].length}`);
-				leaderboard_array.push([user, users[user].length]);
+				leaderboard_array.push([users[user].length], user);
 //				output_data += `\n${user}\t${users[user].length}`;
 //	.sort().reverse();
             }
@@ -44,24 +44,21 @@ module.exports = {
 			"thumbnail": {
 			  "url": "https://cdn.discordapp.com/embed/avatars/0.png"
 			},
-			"image": {
-			  "url": "https://cdn.discordapp.com/embed/avatars/0.png"
-			},
 			"author": {
 			  "name": "author name",
 			  "url": "https://discordapp.com",
 			  "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
 			}
 		  };
-		  channel.send("", { embed });
+		  message.channel.send("", { embed });
 
 		for (let user in users) {
 			message.channel.send({embed: {
 				color: 'RANDOM',
 		//		description: "-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-",
 				fields: [{
-					name: `<@${user[0]}>`,
-					value: `Flags collected: ${user[1]}`
+					name: `<@${user[1]}>`,
+					value: `Flags collected: ${user[0]}`
 				  }
 				]
 			  }

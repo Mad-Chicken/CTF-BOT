@@ -15,7 +15,6 @@ module.exports = {
         } catch(e) {
             console.log('[!] Error:', e.stack);
         }
-		console.log(users_raw);
 		var users = JSON.parse(users_raw);
 		let leaderboard_array = [];
 		for (let user in users) {

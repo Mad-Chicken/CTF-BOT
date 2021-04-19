@@ -27,7 +27,8 @@ module.exports = {
             }
         }
 		leaderboard_array_sorted = leaderboard_array.sort().reverse();
-
+		console.log(leaderboard_array_sorted);
+		
 		const embed = {
 			"title": "LEADERBOARD",
 			"description": "-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-",

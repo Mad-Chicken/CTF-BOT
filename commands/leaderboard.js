@@ -30,38 +30,27 @@ module.exports = {
 				
 		const embed = {
 			"title": "LEADERBOARD",
-			"description": "-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-",
-			"url": "https://discordapp.com",
+			"url": "https://cdn.discordapp.com/avatars/437718810137460737/be423c1b816da483feb907661d34f820.png",
 			"color": 10977743,
 			"timestamp": new Date(),
-			"footer": {
-			  "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
-			  "text": "footer text"
-			},
 			"thumbnail": {
-			  "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+			  "url": "https://cdn.discordapp.com/avatars/437718810137460737/be423c1b816da483feb907661d34f820.png"
 			},
 			"author": {
-			  "name": "author name",
-			  "url": "https://discordapp.com",
-			  "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
+			  "name": "CTF-BOT",
+			  "url": "https://cdn.discordapp.com/avatars/437718810137460737/be423c1b816da483feb907661d34f820.png",
+			  "icon_url": "https://cdn.discordapp.com/avatars/437718810137460737/be423c1b816da483feb907661d34f820.png"
 			}
 		  };
 		  message.channel.send("", { embed });
 
 		for (let user in leaderboard_array_sorted) {
-			console.log(`${leaderboard_array_sorted[user][1]} flags ${[user][0]}`);
+			console.log(`${leaderboard_array_sorted[user][1]} \tflags: ${[user][0]}`);
 			message.channel.send({embed: {
 				color: 'RANDOM',
-				author: {
-					name: `<@${leaderboard_array_sorted[user][1]}>`
-				},
-				footer: {
-					text: `<@${leaderboard_array_sorted[user][1]}>`
-				},
 				fields: [{
-					name: `<@${leaderboard_array_sorted[user][1]}>`,
-					value: `<@${leaderboard_array_sorted[user][1]}> Flags collected: ${leaderboard_array_sorted[user][0]}`
+					name: "",
+					value: `<@${leaderboard_array_sorted[user][1]}> \nFlags collected: ${leaderboard_array_sorted[user][0]}`
 				  }
 				]
 			  }

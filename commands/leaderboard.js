@@ -7,6 +7,7 @@ module.exports = {
 	guildOnly: true,
 	devRole: true,
     execute(message) {
+		console.log("[+] Creating leaderboard");   
 		// Delete command creating leaderboard
 		message.delete();
 		try {
@@ -16,14 +17,10 @@ module.exports = {
         }
 		console.log(users_raw);
 		var users = JSON.parse(users_raw);
-//		let output_data = "Leaderboard";
 		let leaderboard_array = [];
 		for (let user in users) {
             if (users.hasOwnProperty(user)) {     
-				console.log(`[~] ${user} ${users[user]}`);      
-                console.log(`[~] ${user} ${users[user].length}`);
 				leaderboard_array.push([users[user].length, user]);
-//				output_data += `\n${user}\t${users[user].length}`;
             }
         }
 		leaderboard_array_sorted = leaderboard_array.sort().reverse();
@@ -31,21 +28,21 @@ module.exports = {
 		const embed = {
 			"title": "LEADERBOARD",
 			"url": "https://cdn.discordapp.com/avatars/437718810137460737/be423c1b816da483feb907661d34f820.png",
-			"color": 10977743,
+			"color": 13311004,
 			"timestamp": new Date(),
 			"thumbnail": {
-			  "url": "https://cdn.discordapp.com/avatars/437718810137460737/be423c1b816da483feb907661d34f820.png"
+				"url": "https://cdn.discordapp.com/avatars/437718810137460737/be423c1b816da483feb907661d34f820.png"
 			},
 			"author": {
-			  "name": "CTF-BOT",
-			  "url": "https://cdn.discordapp.com/avatars/437718810137460737/be423c1b816da483feb907661d34f820.png",
-			  "icon_url": "https://cdn.discordapp.com/avatars/437718810137460737/be423c1b816da483feb907661d34f820.png"
+				"name": "CTF-BOT",
+				"url": "https://cdn.discordapp.com/avatars/437718810137460737/be423c1b816da483feb907661d34f820.png",
+				"icon_url": "https://cdn.discordapp.com/avatars/437718810137460737/be423c1b816da483feb907661d34f820.png"
 			}
-		  };
-		  message.channel.send("", { embed });
+		};
+		message.channel.send("", { embed });
 
 		for (let user in leaderboard_array_sorted) {
-			console.log(`${leaderboard_array_sorted[user][1]} \tflags: ${[user][0]}`);
+			console.log(`[~] ${leaderboard_array_sorted[user][1]}\t\tFlags: ${[user][0]}`);      
 			message.channel.send({embed: {
 				color: 'RANDOM',
 				fields: [{
@@ -56,14 +53,5 @@ module.exports = {
 			  }
 			});
         }
-
-/*
-		message.channel.send(`
-		${output_data}
-		
-		`).then(sentEmbed => {
-		    sentEmbed.react("🚱")
-		});
-*/
     },
 };

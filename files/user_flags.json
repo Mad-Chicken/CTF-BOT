@@ -1,7 +1,5 @@
 {
 	"437718810137460737" : ["foo","foobar"],
-	"user_1" : ["test_flag_1"],
-	"user_2" : ["test_flag_1","test_flag_3"],
-	"user_3" : ["test_flag_1","test_fla","test_flag3"],
-	"user_4" : ["test_flag_2"]
+	"744199923594952735" : ["test_flag_1"],
+	"833049829877743676" : ["test_flag_1","test_flag_3","foo"]
 }

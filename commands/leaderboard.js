@@ -56,7 +56,7 @@ module.exports = {
 				color: 'RANDOM',
 		//		description: "-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-",
 				fields: [{
-					name: `<@${leaderboard_array_sorted[user][1]}>`,
+					name: `<@!${leaderboard_array_sorted[user][1]}>`,
 					value: `Flags collected: ${leaderboard_array_sorted[user][0]}`
 				  }
 				]

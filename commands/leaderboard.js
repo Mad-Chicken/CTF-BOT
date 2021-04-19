@@ -24,13 +24,10 @@ module.exports = {
                 console.log(`[~] ${user} ${users[user].length}`);
 				leaderboard_array.push([users[user].length, user]);
 //				output_data += `\n${user}\t${users[user].length}`;
-//	.sort().reverse();
             }
         }
-		console.log(leaderboard_array);
-		leaderboard_array.sort().reverse();
-		console.log(leaderboard_array);
-		
+		leaderboard_array_sorted = leaderboard_array.sort().reverse();
+
 		const embed = {
 			"title": "LEADERBOARD",
 			"description": "-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-",
@@ -52,16 +49,14 @@ module.exports = {
 		  };
 		  message.channel.send("", { embed });
 
-		for (let user in users) {
-			console.log(user);
-			console.log(user[0]);
-			console.log(user[1]);
+		for (let user in leaderboard_array_sorted) {
+			console.log(`${user}  ${leaderboard_array_sorted[user].length}`);
 			message.channel.send({embed: {
 				color: 'RANDOM',
 		//		description: "-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-",
 				fields: [{
 					name: `<@${user}>`,
-					value: `Flags collected: ${users[user].length}`
+					value: `Flags collected: ${leaderboard_array_sorted[user].length}`
 				  }
 				]
 			  }

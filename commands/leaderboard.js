@@ -51,13 +51,13 @@ module.exports = {
 		  message.channel.send("", { embed });
 
 		for (let user in leaderboard_array_sorted) {
-			console.log(`${user}  ${leaderboard_array_sorted[user].length}`);
+			console.log(`${user[0]}  ${user[1].length}`);
 			message.channel.send({embed: {
 				color: 'RANDOM',
 		//		description: "-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-",
 				fields: [{
-					name: `<@${user}>`,
-					value: `Flags collected: ${leaderboard_array_sorted[user].length}`
+					name: `<@${user[0]}>`,
+					value: `Flags collected: ${user[1].length}`
 				  }
 				]
 			  }

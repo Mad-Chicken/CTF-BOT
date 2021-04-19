@@ -49,8 +49,8 @@ module.exports = {
 			message.channel.send({embed: {
 				color: 'RANDOM',
 				fields: [{
-					name: "",
-					value: `<@${leaderboard_array_sorted[user][1]}> \nFlags collected: ${leaderboard_array_sorted[user][0]}`
+					name: `Flags collected: ${leaderboard_array_sorted[user][0]}`,
+					value: `<@${leaderboard_array_sorted[user][1]}>`
 				  }
 				]
 			  }

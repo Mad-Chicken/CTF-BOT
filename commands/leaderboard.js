@@ -22,7 +22,7 @@ module.exports = {
             if (users.hasOwnProperty(user)) {     
 				console.log(`[~] ${user} ${users[user]}`);      
                 console.log(`[~] ${user} ${users[user].length}`);
-				leaderboard_array.push([users[user].length], user);
+				leaderboard_array.push([users[user].length, user]);
 //				output_data += `\n${user}\t${users[user].length}`;
 //	.sort().reverse();
             }

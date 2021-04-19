@@ -27,8 +27,7 @@ module.exports = {
             }
         }
 		leaderboard_array_sorted = leaderboard_array.sort().reverse();
-		console.log(leaderboard_array_sorted);
-		
+				
 		const embed = {
 			"title": "LEADERBOARD",
 			"description": "-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-",
@@ -54,10 +53,15 @@ module.exports = {
 			console.log(`${leaderboard_array_sorted[user][1]} flags ${[user][0]}`);
 			message.channel.send({embed: {
 				color: 'RANDOM',
-		//		description: "-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-",
+				author: {
+					name: `<@${leaderboard_array_sorted[user][1]}>`
+				},
+				footer: {
+					text: `<@${leaderboard_array_sorted[user][1]}>`
+				},
 				fields: [{
-					name: `<@!${leaderboard_array_sorted[user][1]}>`,
-					value: `Flags collected: ${leaderboard_array_sorted[user][0]}`
+					name: `<@${leaderboard_array_sorted[user][1]}>`,
+					value: `<@${leaderboard_array_sorted[user][1]}> Flags collected: ${leaderboard_array_sorted[user][0]}`
 				  }
 				]
 			  }

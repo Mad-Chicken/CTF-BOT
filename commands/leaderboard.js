@@ -53,12 +53,15 @@ module.exports = {
 		  message.channel.send("", { embed });
 
 		for (let user in users) {
+			console.log(user);
+			console.log(user[0]);
+			console.log(user[1]);
 			message.channel.send({embed: {
 				color: 'RANDOM',
 		//		description: "-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-",
 				fields: [{
-					name: `<@${user[1]}>`,
-					value: `Flags collected: ${user[0]}`
+					name: `<@${user}>`,
+					value: `Flags collected: ${users[user].length}`
 				  }
 				]
 			  }

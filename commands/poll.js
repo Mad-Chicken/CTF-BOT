@@ -11,7 +11,7 @@ module.exports = {
 	    const pollMessage = args[0];
 	    const options = [];
 		message.delete();
-		const alfa = ["🇦","🇧""""🇨","d","e","f","g","h","i","j","k"];
+		const alfa = ["🇦","🇧","🇨","🇩","🇪","🇫","🇬","🇭","🇮"];
 		args.shift();
 		pollMSG = "";
 	    for (const [i, value] of args.entries()) {

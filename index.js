@@ -9,7 +9,7 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 //When ready
 client.once('ready', () => {
 	console.log(`Logged in as ${client.user.tag}\n`);
-	client.user.setActivity("foobar", { type: "STREAMING", url: "https://www.twitch.tv/justreaperjustreaper" })
+	//client.user.setActivity("foobar", { type: "STREAMING", url: "https://www.twitch.tv/justreaperjustreaper" })
 });
 
 //Open all commands in ./commands dir
@@ -69,16 +69,6 @@ client.on('message', message => {
 
 //Execute Command
 	try {
-        if (commandName === 'playing') {
-            console.log(`Status set to  Play: ${args.join(' ')}`)
-            return client.user.setActivity(`${args.join(' ')}`);
-        } else if (commandName === 'watching') {
-            console.log(`Status set to watching: ${args.join(' ')}`)
-            return client.user.setActivity(`${args.join(' ')}`, { type: 'WATCHING' });
-        } else if (commandName === 'listening') {
-            console.log(`Status set to listening: ${args.join(' ')}`);
-            return client.user.setActivity(`${args.join(' ')}`, { type: 'LISTENING' });
-        }
         command.execute(message, args);
 	} catch (error) {
 		console.error(error);

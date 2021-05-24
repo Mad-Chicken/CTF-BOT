@@ -1,6 +1,3 @@
-const Discord = require('discord.js');
-const ytdl = require('ytdl-core');
-const client = new Discord.Client();
 module.exports = {
 	name: 'audio',
     description: 'Join and play hint',

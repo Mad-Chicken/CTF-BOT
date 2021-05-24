@@ -6,6 +6,15 @@ module.exports = {
 	devRole: true,
 	usage: '<target>',
 	execute(message, args) {
-		message.channel.send(`Setting status to: ${args}`);
+		console.log(`Setting listening status to: ${args.join(' ')}`);
+		/*
+		message.client.user.setPresence({
+			status: 'available',
+			activity: {
+				name: `${args.join(' ')}`,
+				type: 'LISTENING',
+			}
+		})*/
+		message.client.user.setActivity(`${args.join(' ')}`, { type: 'LISTENING' });
 	},
 };

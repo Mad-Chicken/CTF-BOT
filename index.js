@@ -9,7 +9,7 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 //When ready
 client.once('ready', () => {
 	console.log(`Logged in as ${client.user.tag}\n`);
-	//client.user.setActivity("foobar", { type: "STREAMING", url: "https://www.twitch.tv/justreaperjustreaper" })
+	client.user.setStatus('online');
 });
 
 //Open all commands in ./commands dir

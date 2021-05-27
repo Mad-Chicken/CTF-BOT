@@ -37,6 +37,7 @@ module.exports = {
         // test if a flag and/or new flag to the user
         for (let flag in flags) {
             if (args[0] == flags[flag] && !(users[user_id].includes(args[0]))) {
+				message.react('🚩');
                 console.log(`[+] Adding flag: ${flags[flag]} to user: ${user_id}`);
                 // Send webhook
                 mentionHook.send(`<@${user_id}> has captured a flag!`);

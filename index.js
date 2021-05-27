@@ -27,7 +27,7 @@ client.on('message', message => {
 
 	const command = client.commands.get(commandName)
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
-	
+	if (message.webhookID) return;
 	if (!command) return;
 
 //DM Check

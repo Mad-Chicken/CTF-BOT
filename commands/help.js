@@ -1,10 +1,10 @@
 module.exports = {
 	name: 'help',
 	description: 'help!',
-	guildOnly: true,
 	aliases: ['commands', 'whatis'],
-	usage: '[command name]',
+	guildOnly: true,
 	devRole: true,
+	usage: '[command name]',
 	execute(message, args) {
 		message.delete();
 		message.channel.send({embed: {

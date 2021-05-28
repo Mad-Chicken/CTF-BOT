@@ -40,7 +40,11 @@ module.exports = {
 				message.react('🚩');
                 console.log(`[+] Adding flag: ${flags[flag]} to user: ${user_id}`);
                 // Send webhook
-                mentionHook.send(`<@${user_id}> has captured a flag!`);
+//                mentionHook.send(`<@${user_id}> has captured a flag!`);
+				mentionHook.send(`<@${user_id}> has captured a flag!`, {
+					username: 'Flag Bot',
+					avatarURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Gnome-stock_person_bot.svg/1200px-Gnome-stock_person_bot.svg.png',
+				});
                 Q = users[user_id];
                 Q.push(flags[flag]);
                 users[user_id] = Q;

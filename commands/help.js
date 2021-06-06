@@ -15,7 +15,7 @@ module.exports = {
 			fields: [
 				{
 					name : "Input Commands",
-					value : "When you find a flag **dm** them to the bot.\n*Syntax* **input** ***<flag>***\nExample: >> input flag(example_flag)"
+					value : "When you find a flag **dm** them to the bot.\n*Syntax* **input** ***<flag>***\nExample: >> input flag(example_flag)\n**Discord my auto format flags being inputed, this is fine.**"
 				},
 				{
 					name : "Server Command",

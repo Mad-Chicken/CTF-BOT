@@ -26,16 +26,16 @@ module.exports = {
 				
 		const embed = {
 			"title": "LEADERBOARD",
-			"url": "https://cdn.discordapp.com/avatars/437718810137460737/be423c1b816da483feb907661d34f820.png",
+			"url": "https://github.com/Mad-Chicken/",
 			"color": 13311004,
 			"timestamp": new Date(),
 			"thumbnail": {
-				"url": "https://cdn.discordapp.com/avatars/437718810137460737/be423c1b816da483feb907661d34f820.png"
+				"url": "https://cdn.discordapp.com/app-icons/744199923594952735/7c7ace697f07bfd7a06ba741dbf572cf.png"
 			},
 			"author": {
 				"name": "CTF-BOT",
-				"url": "https://cdn.discordapp.com/avatars/437718810137460737/be423c1b816da483feb907661d34f820.png",
-				"icon_url": "https://cdn.discordapp.com/avatars/437718810137460737/be423c1b816da483feb907661d34f820.png"
+				"url": "https://github.com/Mad-Chicken/",
+				"icon_url": "https://cdn.discordapp.com/app-icons/744199923594952735/7c7ace697f07bfd7a06ba741dbf572cf.png"
 			}
 		};
 		message.channel.send("", { embed });

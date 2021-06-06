@@ -60,13 +60,6 @@ client.on('message', message => {
 		}
 	}
 
-//Check Role ctf_user
-	if(command.ctf_user) {
-		if (!(message.member.roles.cache.find(r => r.name === "ctf_user"))) {
-			return message.channel.send(`${message.author} you need to be a ctf user.`);
-		}
-	}
-
 //Execute Command
 	try {
         command.execute(message, args);

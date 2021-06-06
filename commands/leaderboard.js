@@ -41,7 +41,7 @@ module.exports = {
 		message.channel.send("", { embed });
 
 		for (let user in leaderboard_array_sorted) {
-			console.log(`[~] ${leaderboard_array_sorted[user][1]}\t\tFlags: ${[user][0]}`);      
+			console.log(`[~] ${leaderboard_array_sorted[user][1]}\t\tFlags: ${(leaderboard_array_sorted[user][0])}`);      
 			message.channel.send({embed: {
 				color: 'RANDOM',
 				fields: [{

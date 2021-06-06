@@ -2,7 +2,6 @@ module.exports = {
 	name: 'audio',
     description: 'Join and play hint',
 	guildOnly: true,
-	ctf_user: true,
 	args: false,
 	usage: 'audio',
 	execute(message, args) {

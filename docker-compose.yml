@@ -11,6 +11,8 @@ services:
       - "8123"
 #    volumes:
 #      - myapp:/home/node/files
+    volumes:
+      - ./files:/home/node/files
     restart: unless-stopped
    
 #volumes:

@@ -4,7 +4,7 @@ WORKDIR /home/node/
 RUN apt-get update && apt-get install -y ffmpeg
 
 RUN npm init -y
-RUN npm install discord.js@12.3.1
+RUN npm install discord.js@12.5.2
 RUN npm install ffmpeg fluent-ffmpeg @discordjs/opus ytdl-core
 COPY . .
 

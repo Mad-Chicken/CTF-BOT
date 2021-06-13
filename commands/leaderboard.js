@@ -7,7 +7,7 @@ module.exports = {
 	guildOnly: true,
 	devRole: true,
     execute(message) {
-		console.log("[+] Creating leaderboard");   
+		console.log("[+] Creating leaderboard");
 		// Delete command creating leaderboard
 		message.delete();
 		try {
@@ -18,15 +18,15 @@ module.exports = {
 		var users = JSON.parse(users_raw);
 		let leaderboard_array = [];
 		for (let user in users) {
-            if (users.hasOwnProperty(user)) {     
+            if (users.hasOwnProperty(user)) {
 				leaderboard_array.push([users[user].length, user]);
             }
         }
 		leaderboard_array_sorted = leaderboard_array.sort().reverse();
-				
+
 		const embed = {
 			"title": "LEADERBOARD",
-			"url": "https://github.com/Mad-Chicken/",
+			"url": "http://algaea.xyz/",
 			"color": 13311004,
 			"timestamp": new Date(),
 			"thumbnail": {
@@ -41,7 +41,7 @@ module.exports = {
 		message.channel.send("", { embed });
 
 		for (let user in leaderboard_array_sorted) {
-			console.log(`[~] ${leaderboard_array_sorted[user][1]}\t\tFlags: ${(leaderboard_array_sorted[user][0])}`);      
+			console.log(`[~] ${leaderboard_array_sorted[user][1]}\t\tFlags: ${(leaderboard_array_sorted[user][0])}`);
 			message.channel.send({embed: {
 				color: 'RANDOM',
 				fields: [{

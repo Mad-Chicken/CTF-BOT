@@ -10,7 +10,7 @@ module.exports = {
 		message.channel.send({embed: {
 			color: 'RANDOM',
 			title: "CTF Help Commands",
-			url: "https://google.com",
+			url: "http://algaea.xyz/",
 			description: "Suffix: >>\n",
 			fields: [
 				{

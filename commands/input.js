@@ -8,8 +8,10 @@ module.exports = {
 	execute(message, args) {
 //		message.channel.send(`${message.author.id} : ${args}`);
         var user_id = message.author.id;
-        const mentionHook = new Discord.WebhookClient("833088941166952489", "qCLEk2Tm8qRZs3Qph0wR4-ghFvbHfWgOEiCRHZDaSMliS-rcgWWTXB4d65ZbLLJ5lQ3x");
-        //        const mentionHook = new Discord.WebhookClient("851192134093766697", "vnvZjtE3H5QR9aPSWTOCipTHATxhTO9Ne4qNLjF04P5qk9OKb0R-wiLjKqsbWJySfFbW");
+		// Test webhook
+        // const mentionHook = new Discord.WebhookClient("833088941166952489", "qCLEk2Tm8qRZs3Qph0wR4-ghFvbHfWgOEiCRHZDaSMliS-rcgWWTXB4d65ZbLLJ5lQ3x");
+		// Prod webhook
+        const mentionHook = new Discord.WebhookClient("851192134093766697", "vnvZjtE3H5QR9aPSWTOCipTHATxhTO9Ne4qNLjF04P5qk9OKb0R-wiLjKqsbWJySfFbW");
         var write2file = false;
         // Gets user data from the file
         try {

@@ -1,4 +1,5 @@
-Fix why last item in flags will not work
 
-Make leaderboard
+# Public
 
+- Webhook removed
+- bot api token disabled

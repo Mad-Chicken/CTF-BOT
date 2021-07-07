@@ -1,6 +1,5 @@
 version: "3"
 
-# More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
 services:
   ctf-bot:
     container_name: ctf-bot
@@ -9,11 +8,6 @@ services:
       context: .
     ports:
       - "8123"
-#    volumes:
-#      - myapp:/home/node/files
     volumes:
       - ./files:/home/node/files
     restart: unless-stopped
-   
-#volumes:
-#  myapp:
